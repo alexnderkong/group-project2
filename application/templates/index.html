@@ -1,0 +1,43 @@
+{% block body_content %}
+<html>
+    <head>
+        
+        <title>{{  Prize  }}</title>
+        
+    </head>
+    <body>
+        
+        <div class="form">
+	<form method="POST" action="">
+		{{ form.hidden_tag() }}
+
+		{{ form.first_name.label }}<br>
+		{% if form.first_name.errors %}
+		{{ form.first_name }}
+		<div class="error">
+			{% for error in form.first_name.errors %}
+			<span>{{ error }}</span>
+			{% endfor %}
+		</div>
+		{% else %}
+			{{ form.first_name(class="name") }}
+		{% endif %}
+		<br>
+		{{ form.last_name.label }}<br>
+		{% if form.last_name.errors %}
+		{{ form.last_name }}
+		<div class="error">
+			{% for error in form.last_name.errors %}
+			<span>{{ error }}</span>
+			{% endfor %}
+		</div>
+		{% else %}
+			{{ form.last_name(class="last") }}
+		{% endif %}
+		<br>
+		{{ form.submit }}
+        </form>
+        </div>
+    </body>
+</html>
+{% endblock body_content %}
