@@ -38,6 +38,10 @@
 		{{ form.submit }}
         </form>
         </div>
+        {% if prize1 %}
+        <p>congratulations! you have won: £{{ prize1 }}</p>
+        <p> your reference number is {{ ref2 }}</p>
+        {% endif %}
     </body>
 </html>
 {% endblock body_content %}
