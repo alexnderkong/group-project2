@@ -17,5 +17,13 @@ services:
       - type: volume
         source: mysql-vol
         target: "/var/lib/mysql"
+  jenkins:
+    image: jenkinsci/jenkins
+    ports:
+    - target: 8080
+      published: 8081
+      protocol: tcp
+    depends_on:
+    - app
 volumes:
   mysql-vol:
