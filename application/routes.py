@@ -2,8 +2,6 @@ from flask import render_template, request
 from application import app, db
 from application.models import Users
 from application.forms import NameForm
-from application.ref_gen import ref_gen
-from application.prize_gen import random_prize
 import json
 import boto3
 
