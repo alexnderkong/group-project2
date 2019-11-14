@@ -4,16 +4,21 @@ from application.models import Users
 from application.forms import NameForm
 from application.ref_gen import ref_gen
 from application.prize_gen import random_prize
-
+import json
+import boto3
 
 @app.route('/', methods=['GET','POST'])
 @app.route('/home', methods=['GET','POST'])
 def home():
     form = NameForm()
     if form.validate_on_submit():
-        ref2 = ref_gen()
-        prize1 = random_prize()
-        print(prize1)
+        temp = kong.invoke(FunctionName='ref_gen',
+                        InvocationType='RequestResponse')     
+        ref2 = json.loads(temp['Payload'].read().decode('utf-8'))
+        
+        temp = kong.invoke(FunctionName='prize_gen',
+                        InvocationType='RequestResponse')     
+        prize1 = json.loads(temp['Payload'].read().decode('utf-8')) 
         user=Users(
         	first_name=form.first_name.data,
         	last_name=form.last_name.data,
