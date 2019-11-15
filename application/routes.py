@@ -4,7 +4,7 @@ from application.models import Users
 from application.forms import NameForm
 import json
 import boto3
-
+kong = boto3.client('lambda', region_name='eu-west-1', aws_access_key_id='AWS_ACCESS_KEY_ID', aws_secret_access_key='AWS_SECRET_ACCESS_KEY')
 @app.route('/', methods=['GET','POST'])
 @app.route('/home', methods=['GET','POST'])
 def home():
@@ -14,7 +14,7 @@ def home():
                         InvocationType='RequestResponse')     
         ref2 = json.loads(temp['Payload'].read().decode('utf-8'))
         
-        temp = kong.invoke(FunctionName='prize_gen',
+        temp = kong.invoke(FunctionName='prize-gen',
                         InvocationType='RequestResponse')     
         prize1 = json.loads(temp['Payload'].read().decode('utf-8')) 
         user=Users(
