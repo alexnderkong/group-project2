@@ -8,6 +8,7 @@ RUN apt install -y netcat
 WORKDIR /app
 COPY requirements.txt .
 RUN pip3 install -r requirements.txt
+RUN pip3 install boto3
 COPY . .
 EXPOSE 5000
 ENTRYPOINT ["/usr/local/bin/python", "run.py"]

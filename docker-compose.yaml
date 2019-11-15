@@ -6,6 +6,10 @@ services:
       - target: 5000
         published: 80
         protocol: tcp
+    environment:
+      - AWS_ACCESS_KEY_ID=AccessKeyID
+      - AWS_SECRET_ACCESS_KEY=SecretAccessKey
+      - AWS_DEFAULT_REGION=eu-west-1
     depends_on:
       - mysql
   mysql:
