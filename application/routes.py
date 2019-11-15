@@ -4,7 +4,7 @@ from application.models import Users
 from application.forms import NameForm
 import json
 import boto3
-kong = boto3.client('lambda', region_name='eu-west-1', aws_access_key_id='AWS_ACCESS_KEY_ID', aws_secret_access_key='AWS_SECRET_ACCESS_KEY')
+kong = boto3.client('lambda', region_name='eu-west-1')
 @app.route('/', methods=['GET','POST'])
 @app.route('/home', methods=['GET','POST'])
 def home():
