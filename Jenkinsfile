@@ -2,7 +2,7 @@ node {
     def app
     stage('Start docker') {
         app.inside {
-            sh 'sudo docker service start'
+            sh 'docker service start'
         }
     }
     stage('Clone repository') {
