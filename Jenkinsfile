@@ -1,9 +1,8 @@
 node {
     def app
     stage('Start docker') {
-        app.inside {
-            sh 'docker service start'
-        }
+        sh 'docker service start'
+        
     }
     stage('Clone repository') {
         checkout scm
