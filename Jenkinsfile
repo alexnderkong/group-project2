@@ -1,7 +1,7 @@
 node {
     def app
     stage('Start docker') {
-        sh 'service docker start'
+        sh 'sudo service docker start'
         
     }
     stage('Clone repository') {
