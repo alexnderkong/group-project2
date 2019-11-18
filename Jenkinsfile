@@ -1,7 +1,7 @@
 node {
     def app
     stage('Start docker') {
-        steps{
+        app.inside {
             sh 'sudo docker service start'
         }
     }
