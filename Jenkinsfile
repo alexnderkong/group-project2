@@ -1,6 +1,10 @@
 node {
     def app
-
+    stage('Start docker') {
+        steps{
+            sh 'sudo docker service start'
+        }
+    }
     stage('Clone repository') {
         checkout scm
     }
