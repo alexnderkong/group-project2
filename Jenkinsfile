@@ -29,5 +29,6 @@ node {
         }
     stage('Call Freestyle') {
         build job: 'group-project'
+        }
     }
 }
