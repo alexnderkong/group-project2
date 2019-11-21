@@ -1,6 +1,20 @@
 ## running the app
 if you want to run the app in your terminal of choice, clone this repository down and cd into group-project2
 
+### prerequisites:
+
+sudo yum update –y
+
+sudo amazon-linux-extras install docker
+
+sudo service docker start
+
+sudo usermod -a -G docker ec2-user
+
+sudo chkconfig docker on
+
+### runnning the app
+
 the command ./jenkins-setup.sh will start the docker container
 
 access the website by navigating to http://<your ip>/80
